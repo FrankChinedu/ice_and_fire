@@ -1,0 +1,97 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BOOKS CREATE BOOK should create a new book 1`] = `
+Array [
+  "status_code",
+  "status",
+  "data",
+]
+`;
+
+exports[`BOOKS CREATE BOOK should throw validation error if book values are not passed 1`] = `
+Object {
+  "data": Object {
+    "e": Array [
+      Object {
+        "field": "name",
+        "message": "Input your name",
+        "validation": "required",
+      },
+      Object {
+        "field": "isbn",
+        "message": "Input your isbn",
+        "validation": "required",
+      },
+      Object {
+        "field": "authors",
+        "message": "Input your authors",
+        "validation": "required",
+      },
+      Object {
+        "field": "country",
+        "message": "Input your country",
+        "validation": "required",
+      },
+      Object {
+        "field": "publisher",
+        "message": "Input your publisher",
+        "validation": "required",
+      },
+      Object {
+        "field": "number_of_pages",
+        "message": "Input your number_of_pages",
+        "validation": "required",
+      },
+      Object {
+        "field": "release_date",
+        "message": "Input your release_date",
+        "validation": "required",
+      },
+    ],
+  },
+  "status": "error",
+  "status_code": 400,
+}
+`;
+
+exports[`BOOKS CREATE BOOK should throw validation error if data is not unique 1`] = `
+Object {
+  "data": Object {
+    "message": "E11000 duplicate key error collection: books-test.books index: name_1 dup key: { : \\"a game thrones\\" }",
+  },
+  "status": "error",
+  "status_code": 400,
+}
+`;
+
+exports[`BOOKS READ BOOK should get a single book by its Id 1`] = `
+Array [
+  "status_code",
+  "status",
+  "data",
+]
+`;
+
+exports[`BOOKS READ BOOK should get all availbales 1`] = `
+Array [
+  "status_code",
+  "status",
+  "data",
+]
+`;
+
+exports[`BOOKS READ BOOK should return a validation error iF not valid objectID 1`] = `
+Array [
+  "status_code",
+  "status",
+  "data",
+]
+`;
+
+exports[`BOOKS UPDATE should update a book 1`] = `
+Array [
+  "status_code",
+  "status",
+  "data",
+]
+`;

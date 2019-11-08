@@ -1,35 +1,37 @@
 {
-  "name": "mock-premier-league",
+  "name": "ice_and_fire",
   "version": "1.0.0",
-  "description": "mock premier league api",
+  "description": "books api",
   "main": "index.js",
   "scripts": {
     "dev:start": "nodemon server/index",
     "start": "node server/index",
-    "test": "jest",
-    "coverage": "jest --forceExit --coverage && cat ./coverage/lcov.info | coveralls"
+    "test": "NODE_ENV=test jest --verbose --forceExit",
+    "test:watch": "NODE_ENV=test jest --watch --verbose --forceExit",
+    "coverage": "NODE_ENV=test jest --forceExit --coverage && cat ./coverage/lcov.info | coveralls"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/FrankChinedu/mock-premier-league.git"
+    "url": "git+https://github.com/FrankChinedu/ice_and_fire.git"
   },
   "keywords": [
-    "soccer",
+    "books",
     "api"
   ],
   "author": "obi chinedu frank <frankieetchy@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/FrankChinedu/mock-premier-league/issues"
+    "url": "https://github.com/FrankChinedu/ice_and_fire.git/issues"
   },
-  "homepage": "https://github.com/FrankChinedu/mock-premier-league#readme",
+  "homepage": "https://github.com/FrankChinedu/ice_and_fire.git#readme",
   "dependencies": {
     "body-parser": "1.19.0",
+    "dotenv": "8.2.0",
     "express": "4.17.1",
-    "express-jsend": "0.1.0",
-    "indicative": "7.2.1",
-    "jsonwebtoken": "8.5.1",
-    "mongoose": "5.7.1"
+    "indicative": "7.2.3",
+    "mongoose": "5.7.8",
+    "request-promise": "4.2.5",
+    "supertest": "4.0.2"
   },
   "devDependencies": {
     "coverage": "0.4.1",

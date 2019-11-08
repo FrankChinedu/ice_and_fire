@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EXTERNAL BOOKS should get external books api 1`] = `
+Array [
+  "status_code",
+  "status",
+  "data",
+]
+`;

@@ -1,8 +1,3 @@
-const { validations } = require('indicative');
-const Validator = require('indicative/builds/validator');
-const { Vanilla } = require('indicative/builds/formatters');
-
-
 const message = {
   required: 'Input your {{ field }}',
   email: 'The value provided is not an email',
@@ -15,17 +10,16 @@ const message = {
 };
 
 const sanitizeRules = {
-  firstName: 'trim',
-  lastName: 'trim',
-  username: 'trim',
-  email: 'trim',
-  password: 'trim',
+  name: 'trim',
+  isbn: 'trim',
+  authors: 'trim',
+  country: 'trim',
+  number_of_pages: 'trim',
+  publisher: 'trim',
+  release_date: 'trim',
 };
-
-const validatorInstance = Validator(validations, Vanilla);
 
 module.exports = {
   message,
   sanitizeRules,
-  validatorInstance
 };

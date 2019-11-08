@@ -1,48 +1,42 @@
-const { sanitize }  = require('indicative');
+const { validateAll } = require('indicative/validator');
+const transform = require('../utils/resquestUtil');
 const {
-  messages,
-  validatorInstance,
-  sanitizeRules
-} =  require('./validate-utils');
+  message,
+  sanitizeRules,
+} = require('./validate-utils')
 
-const login = (req, res, next) => {
+
+const create = async (req, res, next) => {
   const rules = {
-    email: 'required|email',
-    password: 'required',
+    name: 'required',
+    isbn: 'required|number',
+    authors: 'required',
+    country: 'required',
+    publisher: 'required',
+    number_of_pages: 'required|number',
+    release_date: 'required|date',
   };
 
   const data = req.body;
 
-  sanitize(data, sanitizeRules);
   try {
-    await validatorInstance.validateAll(data, rules, messages);
+    await validateAll(data, rules, message);
     return next();
   } catch (e) {
-    return res.status(422).jerror('ValidationFailed', e);
+    return res.status(400).json(transform.response(400, 'error', {e}));
   }
 }
 
-const signup = async (req, res, next) => {
-  const rules = {
-    firstName: 'required|alpha',
-    lastName: 'required|alpha',
-    username: 'required|alphaNumeric|unique:User',
-    email: 'required|email|unique:User',
-    password: 'required|min:8|max:30',
-  };
+const getbyId = (req, res, next) => {
+  const id = req.params.id;
 
-  const data = req.body;
-
-  sanitize(data, sanitizeRules);
-  try {
-    await validatorInstance.validateAll(data, rules, messages);
-    return next();
-  } catch (e) {
-    return res.status(422).jerror('ValidationFailed', e);
+  if (!id.match(/^[0-9a-fA-F]{24}$/)) {
+    return res.status(400).json(transform.response(400, 'error', {message: 'id has to be a valid objectId'}));
   }
+  next();
 }
 
 module.exports = {
-  login,
-  signup
+  create,
+  getbyId
 };
