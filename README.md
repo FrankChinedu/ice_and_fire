@@ -9,6 +9,7 @@ Kindly ensure you install the following softwares
 1. [Git](https://git-scm.com/)
 2. [Node.js](https://nodejs.org/en/)
 3. Node Package Manager (npm), this comes pre-installed with Node.js
+4. install mongoDB for the database
 
 ## Getting Started
 
